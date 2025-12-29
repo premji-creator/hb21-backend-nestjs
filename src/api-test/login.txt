@@ -1,0 +1,27 @@
+
+
+
+ login - POST                --- 
+ http://localhost:3000/auth/login
+
+ JSON - 
+
+
+{
+  "user": "rahul.kumar@example.com",
+  "password": "Rahul@123"
+}
+
+
+
+create new user -- POST
+
+http://localhost:3000/users
+
+JSON 
+
+{
+  "name" : "syamjj",
+  "email": "rahul.kumar@example.com",
+  "password": "Rahul@123"
+}

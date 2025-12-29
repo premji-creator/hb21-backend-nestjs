@@ -1,0 +1,17 @@
+
+http://localhost:3000/db/tables    --   GET   -- view all data
+
+http://localhost:3000/db/drop-all   -- DELETE  -- drop all table   
+
+
+
+
+tables
+
+
+document_details
+document_master
+parties
+user_company
+user
+companies

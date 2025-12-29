@@ -1,0 +1,65 @@
+  
+  create company - POST 
+  http://localhost:3000/company
+
+  json -
+   {
+  "name": "ABC Traders Pvt Ltd",
+  "gstNumber": "29ABCDE1234F1Z5",
+  "tinNumber": "12345678901",
+  "address": "12/45 MG Road",
+  "city": "Bengaluru",
+  "pin": "560001",
+  "contactNo1": "+91-9876543210",
+  "contactNo2": "+91-9123456780",
+  "planChosen": "PRO",
+  "expiryDate": "2026-01-01",
+  "invoiceType": "GST",
+  "rateType": "with_gst"
+}
+
+Get all company list - GET
+ http://localhost:3000/company
+
+ Get any one company list - GET
+ http://localhost:3000/company/1
+
+ update company - PUT
+ http://localhost:3000/company/1
+
+  json -
+{
+  "name": "ABC Act Pvt Ltd",
+  "gstNumber": "29ABCDE1234F1Z5",
+  "tinNumber": "12345678901",
+  "address": "12/45 MG Road",
+  "city": "Bengaluru",
+  "pin": "560001",
+  "contactNo1": "+91-9876543210",
+  "contactNo2": "+91-9123456780",
+  "planChosen": "PRO",
+  "expiryDate": "2026-01-01",
+  "invoiceType": "GST",
+  "rateType": "with_gst"
+}
+
+
+
+ Delete company - DELETE                --- not recommended
+ http://localhost:3000/company/1
+
+
+
+ map-user  -- POST
+
+ localhost:3000/user-company 
+
+ json - 
+{
+  "userId":1,
+  "companyId":1,
+  "role": "ADMIN"
+}
+
+
+

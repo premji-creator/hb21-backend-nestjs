@@ -1,0 +1,31 @@
+users
+
+  
+  create company - POST 
+  http://localhost:3000/users
+
+  json -
+   {
+  "name": "Premji",
+  "email": "test@example.com"
+  }
+
+Get all users list - GET
+ http://localhost:3000/users
+
+ Get any one users list - GET
+ http://localhost:3000/users/1
+
+ update users - PUT
+ http://localhost:3000/users/1
+
+  json -
+{
+  "name": "Premji",
+  "email": "test@example.com"
+}
+
+
+
+ Delete company - DELETE                --- not recommended
+ http://localhost:3000/users/1
