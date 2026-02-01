@@ -58,6 +58,15 @@ export class CreatePartyDto {
   @IsOptional()
   companyId ?: number;
 
+  @IsOptional()
+  id ?: number;
+
+  @IsOptional()
+  name ?: string;
+
+  @IsOptional()
+  isActive ?: boolean;
+
 }
 
 

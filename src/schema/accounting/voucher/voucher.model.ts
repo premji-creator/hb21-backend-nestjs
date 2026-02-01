@@ -7,7 +7,17 @@
   JOURNAL = 'JOURNAL',
   SALES_RETURN = "SALES_RETURN",
   PURCHASE_RETURN = "PURCHASE_RETURN",
+  OPENING = 'OPENING'
 }
+
+export enum VoucherMode {
+  CASH = 'CASH',
+  CHEQUE = 'CHEQUE',
+  ONLINE = 'ONLINE',
+  BANK_TRANSFER = 'BANK_TRANSFER',
+  UPI = 'UPI',
+}
+
 import {
   Table,
   Column,
@@ -15,6 +25,7 @@ import {
   DataType,
   HasMany,
   ForeignKey,
+  BelongsTo,
 } from 'sequelize-typescript';
 
 import { VoucherDetail } from './voucher.details.model';
@@ -32,6 +43,11 @@ export class VoucherMaster extends Model<VoucherMaster> {
 
   @Column(DataType.ENUM(...Object.values(VoucherType)))
   type: VoucherType;
+
+
+  @Column(DataType.ENUM(...Object.values(VoucherMode)))
+  mode: VoucherMode;
+
 
   @Column
   voucherNo: string;
@@ -55,4 +71,7 @@ export class VoucherMaster extends Model<VoucherMaster> {
 
   @HasMany(() => VoucherDetail)
   entries: VoucherDetail[];
+
+  @BelongsTo(() => Party)
+  declare party: Party;
 }

@@ -30,7 +30,7 @@ export class DocumentDetail extends Model<
 
   @ForeignKey(() => DocumentMaster)
   @Column
-  declare salesMasterId: number;
+  declare documentMasterId: number;
 
   @Column(DataType.STRING)
   declare productName: string;

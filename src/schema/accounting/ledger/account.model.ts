@@ -26,6 +26,7 @@ import {
   DataType,
   HasMany,
   ForeignKey,
+  BelongsTo,
 } from 'sequelize-typescript';
 
 import { VoucherDetail } from '../../accounting/voucher/voucher.details.model';
@@ -64,4 +65,7 @@ export class Account extends Model<Account> {
 
   @HasMany(() => VoucherDetail)
   entries: VoucherDetail[];
+
+ @BelongsTo(() => Party)
+  party?: Party;
 }

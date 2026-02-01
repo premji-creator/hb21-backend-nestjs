@@ -11,6 +11,7 @@ import { PartyModule } from './schema/party/party.module';
 import { AccountModule } from './schema/accounting/ledger/account.module';
 import { VoucherModule } from './schema/accounting/voucher/voucher.module';
 import { ItemPriceModule } from './schema/master/item/item-price.module';
+import { AuditTrailModule } from './schema/accounting/audit/audit.module';
 @Module({
   imports: [
     DatabaseModule,
@@ -22,6 +23,7 @@ import { ItemPriceModule } from './schema/master/item/item-price.module';
     AccountModule,
     VoucherModule,
     ItemPriceModule,
+    AuditTrailModule,
     AuthModule
   ],
  

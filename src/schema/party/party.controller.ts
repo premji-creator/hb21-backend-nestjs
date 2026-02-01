@@ -14,7 +14,7 @@ export class PartyController {
   
 
   @UseGuards(JwtAuthGuard)
-  @Get()
+  @Get('list')
   findAll(@User('sub') userId: number) {
     return this.PartyService.findAll(userId);
   }
@@ -30,6 +30,14 @@ export class PartyController {
   addnewParty(@Body() body: CreatePartyDto,@User('sub') userId: number) {
     return this.PartyService.addnewParty(body,userId);
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Put('update-party')
+  updateParty(@Body() body: UpdatePartyDto,@User('sub') userId: number) {
+    return this.PartyService.updateParty(body,userId);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Put(':id')
   update(@Param('id') id: string, @Body() body: UpdatePartyDto) {
     return this.PartyService.update(Number(id), body);

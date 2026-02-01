@@ -3,6 +3,8 @@ export enum DocumentType {
   PURCHASE = 'PURCHASE',
   SALES_RETURN = 'SALES_RETURN',
   PURCHASE_RETURN = 'PURCHASE_RETURN',
+  ORDER = 'ORDER',
+  QUOTE = 'QUOTE'
 }
 
 import {
@@ -21,19 +23,11 @@ import { Company } from '../company/company.model';
 import { User } from '../user/user.model';
 import { DocumentDetail } from './document-detail.model';
 import { VoucherMaster } from '../accounting/voucher/voucher.model';
+import { Party } from '../party/party.model';
 
 @Table({ tableName: 'document_master' })
-export class DocumentMaster extends Model<
-  DocumentMaster,
-  {
-    id?: number;
-    companyId: number;
-    userId: number;
-    invoiceNo: string;
-    invoiceDate: Date;
-    totalAmount: number;
-  }
-> {
+export class DocumentMaster extends Model<DocumentMaster> 
+{
    @Column({
     type: DataType.INTEGER,
     autoIncrement: true,
@@ -49,8 +43,12 @@ export class DocumentMaster extends Model<
   @Column
   declare userId: number;
 
+    @ForeignKey(() => Party)
+  @Column
+  declare partyId: number;
+
   @Column(DataType.ENUM(...Object.values(DocumentType)))
-  type: DocumentType;
+  declare type: DocumentType;
 
   @Column(DataType.STRING)
   declare documentNo: string;
@@ -68,10 +66,12 @@ export class DocumentMaster extends Model<
   declare discount_amount: number;
 
   @Column(DataType.STRING)
-  declare narration: string;
+  declare notes: string;
 
   @Column(DataType.STRING)
-  declare status: string;    // (DRAFT / POSTED / CANCELLED)
+  declare status: string;  
+  
+
   
   @ForeignKey(() => VoucherMaster)
   @Column
@@ -86,4 +86,7 @@ export class DocumentMaster extends Model<
 
   @BelongsTo(() => User)
   declare user: User;
+
+  @BelongsTo(() => Party)
+  declare party: Party;
 }

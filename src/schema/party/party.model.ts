@@ -4,8 +4,10 @@ import {
   Model,
   DataType,
   ForeignKey,
+  HasOne,
 } from 'sequelize-typescript';
 import { Company } from '../company/company.model';
+import { Account } from '../accounting/ledger/account.model';
 export enum PartyTypes {
   CUSTOMER = 'Customer',
   VENDOR = 'Vendor',
@@ -72,5 +74,7 @@ export class Party extends Model<Party> {
   @Column(DataType.DECIMAL(10, 2))
   declare debitDays: number;
 
+  @HasOne(() => Account)
+  account: Account;
  
 }

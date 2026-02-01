@@ -45,11 +45,21 @@ export class CompanyService {
 
     async seedCompanyAccounts(companyId: number) {
           const accounts = [
-            { name: 'Cash', type: AccountType.CASH },
-            { name: 'Sales', type: AccountType.SALES },
-            { name: 'Purchase', type: AccountType.PURCHASE },
-            { name: 'Capital', type: AccountType.CAPITAL },
-            { name: 'Opening Balance', type: AccountType.ADJUSTMENT },
+            { name: 'CASH', type: AccountType.CASH },
+            { name: 'BANK', type: AccountType.BANK },
+            { name: 'PARTY', type: AccountType.PARTY },
+            { name: 'SALES', type: AccountType.SALES },
+            { name: 'CAPITAL', type: AccountType.CAPITAL },
+            { name: 'ADJUSTMENT', type: AccountType.ADJUSTMENT },
+            { name: 'PURCHASE', type: AccountType.PURCHASE },
+            { name: 'EXPENSE', type: AccountType.EXPENSE },
+            { name: 'SALES_RETURN', type: AccountType.SALES_RETURN },
+            { name: 'PURCHASE_RETURN', type: AccountType.PURCHASE_RETURN },
+            { name: 'TAX', type: AccountType.TAX },
+            { name: 'DRAWINGS', type: AccountType.DRAWINGS },
+            { name: 'LOAN', type: AccountType.LOAN },
+            { name: 'ROUND_OFF', type: AccountType.ROUND_OFF }
+
           ];
 
           for (const acc of accounts) {
