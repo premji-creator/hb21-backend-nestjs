@@ -10,6 +10,7 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main.js",
     "build": "nest build",
+    "esb": "esbuild src/main.ts --bundle --platform=node --outfile=dist/app.js",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\""
   },
@@ -32,6 +33,7 @@
     "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.6",
     "@types/sequelize": "^4.28.20",
+     "esbuild": "^0.27.2",
     "nodemon": "^3.1.11",
     "ts-node": "^10.9.2"
   }

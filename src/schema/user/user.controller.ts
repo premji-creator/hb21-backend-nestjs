@@ -7,7 +7,7 @@ import { User } from '../../utils/decorators/user.decorator'
 export class UserController {
   constructor(private readonly usersService: UserService) {}
   
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   @Post()
   create(@Body() body: CreateUserDto,@User('sub') userId: number) {
     return this.usersService.create(body,userId);
